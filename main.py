@@ -56,7 +56,7 @@ async def add(ctx, *args):
         cal = value + 1
         db[sPlayer] = cal
         if cal >=5:
-          await ctx.channel.send(sPlayer +'คุณมีแห้วครบ5 โปรดติดต่อพี่หูยาว')
+          await ctx.channel.send(sPlayer +'คุณมีแห้วครบ5 โปรดติดต่อเจ้าแม่หูยาว')
       else:
         db[sPlayer] = 1
       # await ctx.channel.send(sPlayer +' add '+ str(1) +'★แห้ว')
