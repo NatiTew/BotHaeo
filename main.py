@@ -193,39 +193,39 @@ async def s(ctx, player: discord.Member):
   else:
     await ctx.channel.send('Not Found')
 
-@client.command()
-async def board(ctx):
-  cal_board()
-  print(listC)
-  embed = discord.Embed(title=f"{'----------< ทำเนียบนักสะสมแห้ว >----------'}", description=('แสดง Top25'),color=discord.Color.red())
-  num = 0
-  while num < len(listC):
-    value = db[listC[num]]
-    nameDis = str(listC[num])
-    if value >0 :
-      embed.add_field(name=str(value) + ' แห้ว' , value=f"{nameDis}")
-    num += 1
-  await ctx.send(embed=embed)
-
 # @client.command()
 # async def board(ctx):
 #   cal_board()
 #   print(listC)
-#   output = " ----------<Leader Board>---------- \n"
-#   output = output + " ถ้าชื่อใครไม่ขึ้นให้ใช้คำสั่ง +show ก่อนแล้วมาลองใหม่ \n"
+#   embed = discord.Embed(title=f"{'----------< ทำเนียบนักสะสมแห้ว >----------'}", description=('แสดง Top25'),color=discord.Color.red())
 #   num = 0
 #   while num < len(listC):
 #     value = db[listC[num]]
 #     nameDis = str(listC[num])
-#     output = output + ''+ str(value) + '★Star ของ ' +nameDis + ' \n'
-    
+#     if value >0 :
+#       embed.add_field(name=str(value) + ' แห้ว' , value=f"{nameDis}")
 #     num += 1
-#     if num%25 == 0:
-#       await ctx.send(output)
-#       output = ''
-#     elif num == len(listC):
-#       await ctx.send(output)
-#       output = ''
+#   await ctx.send(embed=embed)
+
+@client.command()
+async def board(ctx):
+  cal_board()
+  print(listC)
+  output = " ----------<Leader Board>---------- \n"
+  output = output + " ถ้าชื่อใครไม่ขึ้นให้ใช้คำสั่ง +show ก่อนแล้วมาลองใหม่ \n"
+  num = 0
+  while num < len(listC):
+    value = db[listC[num]]
+    nameDis = str(listC[num])
+    output = output + ''+ str(value) + '★Star ของ ' +nameDis + ' \n'
+    
+    num += 1
+    if num%25 == 0:
+      await ctx.send(output)
+      output = ''
+    elif num == len(listC):
+      await ctx.send(output)
+      output = ''
   
 @client.command()
 async def restart(ctx): 
